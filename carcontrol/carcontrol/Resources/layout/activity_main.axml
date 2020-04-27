@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+		android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+		android:orientation="vertical"
+		>
+
+		<GridLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"    
+        android:rowCount="2"
+        android:columnCount="2">
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="^"
+			android:padding="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:background="@android:color/black"
+			android:textColor="@android:color/white"
+			android:textSize="38dp"
+			android:id="@+id/up_button"
+		/>
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text=">"
+			android:padding="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:background="@android:color/black"
+			android:textColor="@android:color/white"
+			android:textSize="38dp"
+			android:id="@+id/right_button"
+		/>
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="v"
+			android:padding="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:background="@android:color/black"
+			android:textColor="@android:color/white"
+			android:textSize="21dp"
+			android:id="@+id/down_button"
+		/>
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="-"
+			android:padding="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:background="@android:color/black"
+			android:textColor="@android:color/white"
+			android:textSize="38dp"
+			android:id="@+id/left_button"
+		/>
+		
+	</GridLayout>
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Conectar"
+			android:padding="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:background="@android:color/holo_green_dark"
+			android:textColor="@android:color/white"
+			android:textSize="18dp"
+			android:id="@+id/connect_button"
+		/>
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Desonectar"
+			android:padding="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:background="@android:color/holo_red_dark"
+			android:textColor="@android:color/white"
+			android:textSize="18dp"
+			android:id="@+id/disconnect_button"
+			android:visibility = "gone"
+		/>
+	
+		<android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/navigation" />
+	</LinearLayout>
+
+
+
+</RelativeLayout>
