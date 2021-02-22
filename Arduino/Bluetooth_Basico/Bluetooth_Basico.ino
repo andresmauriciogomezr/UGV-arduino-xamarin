@@ -1,5 +1,7 @@
 #include <SoftwareSerial.h>   // Incluimos la librería  SoftwareSerial  
-SoftwareSerial BT(10,11);    // Definimos los pines RX y TX del Arduino conectados al Bluetooth
+
+                 //tx, rx
+SoftwareSerial BT(A5,A4);    // Definimos los pines RX y TX del Arduino conectados al Bluetooth
 int led13=13; 
 void setup()
 {

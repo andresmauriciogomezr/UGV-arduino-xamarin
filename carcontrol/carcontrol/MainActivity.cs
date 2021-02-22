@@ -55,25 +55,25 @@ namespace carcontrol
 
         private void Right_button_click(object sender, EventArgs e)
         {
-            Java.Lang.String dataToSend = new Java.Lang.String("R\n");// up
+            Java.Lang.String dataToSend = new Java.Lang.String("r\n");// up
             this.bluettoth.SendData(dataToSend);// UP
         }
 
         private void Left_button_click(object sender, EventArgs e)
         {
-            Java.Lang.String dataToSend = new Java.Lang.String("L\n");// up
+            Java.Lang.String dataToSend = new Java.Lang.String("l\n");// up
             this.bluettoth.SendData(dataToSend);// UP
         }
 
         private void Up_button_click(object sender, EventArgs e)
         {
-            Java.Lang.String dataToSend = new Java.Lang.String("U\n");// up
+            Java.Lang.String dataToSend = new Java.Lang.String("u\n");// up
             this.bluettoth.SendData(dataToSend);// UP
         }
 
         private void Down_button_click(object sender, EventArgs e)
         {
-            Java.Lang.String dataToSend = new Java.Lang.String("D\n");// up
+            Java.Lang.String dataToSend = new Java.Lang.String("d\n");// up
             this.bluettoth.SendData(dataToSend);// UP
         }
 
