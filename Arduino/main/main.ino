@@ -30,29 +30,29 @@ void setup() {
 }
 
 void loop() {
-  //forward(100);
+  forward(100);
   //backward(100);
 //forward(50);
-  while(Serial.available()>0)
-  {
+  // while(Serial.available()>0)
+  // {
     
-    msg=Serial.read();
-    if(msg=='u')
-    {
-      forward(50);
-    }  
+  //   msg=Serial.read();
+  //   if(msg=='u')
+  //   {
+  //     forward(50);
+  //   }  
 
-    if(msg=='d')
-    {
-      backward(50);
-    }
+  //   if(msg=='d')
+  //   {
+  //     backward(50);
+  //   }
 
-    if(msg=='l')
-    {
-      forward(0);
-    }
+  //   if(msg=='l')
+  //   {
+  //     forward(0);
+  //   }
     
-  }
+  // }
 }
 
 void backward(int velocity){
