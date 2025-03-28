@@ -1,3 +1,4 @@
+#include <SoftwareSerial.h>
 
 
 // MOTOR TRASERO DERECHO
@@ -21,38 +22,96 @@ int front_left_b = 2;
 int front_left_velocity = 3;
 
 int msg=0;
+
+#define BT_RX A2
+#define BT_TX A3
+
+SoftwareSerial blue(BT_RX, BT_TX);   //Crea conexion al bluetooth - PIN 2 a TX y PIN 3 a RX
+
+
+char NOMBRE[21]  = "Mauricio"; // Nombre de 20 caracteres maximo
+char BPS         = '4';     // 1=1200 , 2=2400, 3=4800, 4=9600, 5=19200, 6=38400, 7=57600, 8=115200
+char PASS[5]    = "1111";   // PIN O CLAVE de 4 caracteres numericos     
+ 
+
 void setup() {
-  
   Serial.begin(9600);
+  blue.begin(9600);        // Inicializamos el puerto serie BT que hemos creado
+  
+   int pins[] = {1, 2, 3,
+                4, 5, 6,
+                6, 7, 8,
+                9, 10, 11, 12, 13};
+  for (int p : pins) pinMode(p, OUTPUT);
+  // Serial.begin(9600);
   //pinMode (`, OUTPUT);
   //pinMode (front_right_b, OUTPUT);
+
+  // pinMode(13,OUTPUT);
+    // digitalWrite(13,HIGH); // Enciende el LED 13 durante 4s antes de configurar el Bluetooth
+    // delay(4000);
+    
+    // digitalWrite(13,LOW); // Apaga el LED 13 para iniciar la programacion
+    
+    // blue.print("AT");  // Inicializa comando AT
+    // delay(1000);
+ 
+    // blue.print("AT+NAME"); // Configura el nuevo nombre 
+    // blue.print(NOMBRE);
+    // delay(1000);                  // espera 1 segundo
+ 
+    // blue.print("AT+BAUD");  // Configura la nueva velocidad 
+    // blue.print(BPS); 
+    // delay(1000);
+ 
+    // blue.print("AT+PIN");   // Configura el nuevo PIN
+    // blue.print(PASS); 
+    // delay(1000); 
    
 }
 
 void loop() {
-  forward(100);
-  //backward(100);
-//forward(50);
-  // while(Serial.available()>0)
-  // {
-    
-  //   msg=Serial.read();
-  //   if(msg=='u')
-  //   {
-  //     forward(50);
-  //   }  
+  
+  if (blue.available()) {
+    char cmd = blue.read();
+    Serial.print("Recibido: "); Serial.println(cmd);
 
-  //   if(msg=='d')
-  //   {
-  //     backward(50);
-  //   }
+    switch (cmd) {
+      case 'u': forward(50); delay(1000); break;
+      case 'd': backward(50); delay(1000); break;
+      case 'l': forward(0);    break;
+      default:  forward(0);    break;
+    }
+  }
 
-  //   if(msg=='l')
-  //   {
-  //     forward(0);
-  //   }
+  //  if(Serial.available())  // Si llega un dato por el monitor serial se envía al puerto BT
+  //  {
+  //     blue.write("u");
+  //  }
+//   forward(0);
+//   //backward(100);
+// //forward(50);
+//   while(blue.available()>0)
+//   {
+//   forward(50);
     
-  // }
+//     msg=blue.read();
+//     if(msg=='u')
+//     {
+//       forward(50);
+//     }  
+
+//     if(msg=='d')
+//     {
+//       backward(50);
+//     }
+
+//     if(msg=='l')
+//     {
+//       forward(0);
+//     }
+    
+//   }
 }
 
 void backward(int velocity){

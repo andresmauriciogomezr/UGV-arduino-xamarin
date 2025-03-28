@@ -5,7 +5,7 @@ SoftwareSerial BT(A5,A4);    // Definimos los pines RX y TX del Arduino conectad
 int led13=13; 
 void setup()
 {
-  BT.begin(9600);       // Inicializamos el puerto serie BT que hemos creado
+  BT.begin(9600);        // Inicializamos el puerto serie BT que hemos creado
   Serial.begin(9600);   // Inicializamos  el puerto serie
 
   pinMode(led13,OUTPUT);
